@@ -1,0 +1,30 @@
+<br/>
+<br/>
+
+<form class="form-inline">
+    <button type="button" [routerLink]="['/culturaAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
+  
+</form>
+<br/>
+<br/>
+<table class="table">
+  <thead class="thread-dark">
+    <tr>
+
+      <th scope="col">Id Cultura</th>
+      <th scope="col">Nome da Cultura/Variedade</th>
+      <th scope="col">Excluir</th>
+      <th scope="col">Editar</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cultura of culturas">
+      <td>{{cultura.idCultura}}</td>
+      <td>{{cultura.nomeCultura}}</td>
+      <td><button (click)="excluirCultura(cultura.idCultura)" class="btn btn-primary">Excluir</button></td>
+      <td><button [routerLink]="['/culturaAdd', cultura.idCultura]" routerLinkActive="router-link-active" class="btn btn-warning">Editar</button></td>
+
+    </tr>
+  </tbody>
+</table>

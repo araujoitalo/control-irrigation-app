@@ -1,5 +1,5 @@
-import { User } from './../model/User';
-import { AppConstants } from './../app-constants';
+import { Fazenda } from './../model/Fazenda';
+import { AppConstants } from '../app-constants';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class FazendaService {
 
 
   constructor(private http: HttpClient) {
   }
 
-  getStudentList(): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrl);
+  getFazendasList(idUsuario): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlFazenda + idUsuario);
   }
 
   getStudentListPage(pagina): Observable<any> {
@@ -42,12 +42,12 @@ export class UsuarioService {
 
   }
 
-  salvarUsuario(user): Observable<any> {
-    return this.http.post<any>(AppConstants.baseUrl, user);
+  salvarFazenda(fazenda): Observable<any> {
+    return this.http.post<any>(AppConstants.baseUrlFazenda, fazenda);
   }
 
-  updateUsuario(user): Observable<any> {
-    return this.http.put<any>(AppConstants.baseUrl, user);
+  updateFazenda(fazenda): Observable<any> {
+    return this.http.put<any>(AppConstants.baseUrlFazenda, fazenda);
   }
 
   userAutenticado() {
@@ -59,15 +59,6 @@ export class UsuarioService {
       return false;
     }
   }
-
-  recuperarUsuario(): Observable<any>{
-
-    let user = new User();
-    user.login = localStorage.getItem('loginUsuario');
-
-  return this.http.post<any>(AppConstants.baseUrlPath + 'recuperar/', user);
-
-}
 
   removerTelefone(id): Observable<any> {
     return this.http.delete(AppConstants.baseUrl + "removerTelefone/" + id, { responseType: 'text' });

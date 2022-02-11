@@ -28,7 +28,7 @@
     "ng2-charts": "^2.3.0",
     "ngx-currency": "^2.2.2",
     "ngx-mask": "^8.1.7",
-    "ngx-pagination": "^5.0.0",
+    "ngx-pagination": "^5.1.1",
     "popper.js": "^1.14.3",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

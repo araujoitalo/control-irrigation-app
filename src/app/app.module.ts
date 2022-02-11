@@ -11,6 +11,14 @@ import { UsuarioComponent } from './componente/usuario/usuario/usuario.component
 import { HttpInterceptorModule } from './service/header-interceptor';
 import { UsuarioAddComponent } from './componente/usuario/usuario-add/usuario-add.component';
 import { GuardiaoGuard } from './service/guardiao.guard';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { FazendaComponent } from './componente/fazenda/fazenda/fazenda.component'; 
+import { FazendaAddComponent } from './componente/fazenda/fazenda-add/fazenda-add.component';
+import { CulturaComponent } from './componente/cultura/cultura.component';
+import { CulturaAddComponent } from './componente/cultura/cultura-add/cultura-add.component';
+
+
 
 export const appRouters: Routes = [
 
@@ -18,11 +26,18 @@ export const appRouters: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
   { path: 'userList', component: UsuarioComponent, canActivate: [GuardiaoGuard] },
-  {path: 'usuarioAdd', component : UsuarioAddComponent, canActivate: [GuardiaoGuard]},
-  {path: 'usuarioAdd/:id', component : UsuarioAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'usuarioAdd', component : UsuarioAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'usuarioAdd/:id', component : UsuarioAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'fazendaList', component : FazendaComponent, canActivate: [GuardiaoGuard]},
+  { path: 'fazendaAdd', component : FazendaAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'culturaList', component : CulturaComponent, canActivate: [GuardiaoGuard]},
+  { path: 'culturaAdd', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'culturaAdd/:id', component : CulturaAddComponent, canActivate: [GuardiaoGuard]}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
+
+export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -30,14 +45,21 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     HomeComponent,
     LoginComponent,
     UsuarioComponent,
-    UsuarioAddComponent
+    UsuarioAddComponent,
+    FazendaComponent,
+    FazendaAddComponent,
+    CulturaComponent,
+    CulturaAddComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     routes,
-    HttpInterceptorModule
+    HttpInterceptorModule,
+    NgxMaskModule.forRoot(optionMask),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,25 @@
-<p>P�gime home do nosso projeto Angular 8</p>
+<br/>
+<br/>
+
+<table class="table">
+  <thead class="thread-dark">
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Parcela</th>
+      <th scope="col">Cultura</th>
+      <th scope="col">Irrigação Necessária(mm)</th>
+      <th scope="col">Tempo Necessário</th>
+      <th scope="col">Percentimetro(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let manejo of manejos ">
+      <td>{{manejo.dataManejo}}</td>
+      <td>{{manejo.idParcela}}</td>
+      <td>{{manejo.irrigacaoNecessaria}}</td>
+      <td>{{manejo.irrigacaoNecessaria}}</td>
+      <td>{{manejo.irrigacaoNecessaria}}</td>
+      <td>{{manejo.irrigacaoNecessaria}}</td>
+    </tr>
+  </tbody>
+</table>
