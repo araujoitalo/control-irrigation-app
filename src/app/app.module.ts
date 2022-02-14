@@ -17,7 +17,8 @@ import { FazendaComponent } from './componente/fazenda/fazenda/fazenda.component
 import { FazendaAddComponent } from './componente/fazenda/fazenda-add/fazenda-add.component';
 import { CulturaComponent } from './componente/cultura/cultura.component';
 import { CulturaAddComponent } from './componente/cultura/cultura-add/cultura-add.component';
-
+import { GotejadorComponent } from './componente/equipamentos/gotejador/gotejador/gotejador.component';
+import { GotejadorAddComponent } from './componente/equipamentos/gotejador/gotejador-add/gotejador-add.component';
 
 
 export const appRouters: Routes = [
@@ -25,14 +26,19 @@ export const appRouters: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [GuardiaoGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
+
   { path: 'userList', component: UsuarioComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuarioAdd', component : UsuarioAddComponent, canActivate: [GuardiaoGuard]},
   { path: 'usuarioAdd/:id', component : UsuarioAddComponent, canActivate: [GuardiaoGuard]},
+
   { path: 'fazendaList', component : FazendaComponent, canActivate: [GuardiaoGuard]},
   { path: 'fazendaAdd', component : FazendaAddComponent, canActivate: [GuardiaoGuard]},
+
   { path: 'culturaList', component : CulturaComponent, canActivate: [GuardiaoGuard]},
   { path: 'culturaAdd', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},
-  { path: 'culturaAdd/:id', component : CulturaAddComponent, canActivate: [GuardiaoGuard]}
+  { path: 'culturaAdd/:id', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},
+
+  { path: 'gotejadorList', component : GotejadorComponent, canActivate: [GuardiaoGuard]}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
@@ -49,7 +55,9 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     FazendaComponent,
     FazendaAddComponent,
     CulturaComponent,
-    CulturaAddComponent
+    CulturaAddComponent,
+    GotejadorComponent,
+    GotejadorAddComponent
 
   ],
   imports: [

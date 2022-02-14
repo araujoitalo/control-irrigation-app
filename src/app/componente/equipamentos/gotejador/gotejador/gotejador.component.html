@@ -1,0 +1,44 @@
+<br/>
+<br/>
+
+<form class="form-inline">
+
+  <button type="button" [routerLink]="['/usuarioAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
+  
+</form>
+
+<br/>
+<br/>
+
+<table class="table">
+  <thead class="thread-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome/Descrição</th>
+      <th scope="col">Vazão(l/h)</th>
+      <th scope="col">Espaço entre Gotejadores</th>
+      <th scope="col">Espaçamento entre linhas laterais</th>
+      <th scope="col">Largura da Faixa Molhada</th>
+      <th scope="col">Uniformidade(%)</th>
+      <th scope="col">Lâmina(mm)</th>
+      <th scope="col">Excluir</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gotejador of gotejadores">
+      <td>{{gotejador.idGotejador}}</td>
+      <td>{{gotejador.nomeGotejador}}</td>
+      <td>{{gotejador.vazaoGotejador}}</td>
+      <td>{{gotejador.espacamentoGotejador}}</td>
+      <td>{{gotejador.espacamentoLinha}}</td>
+      <td>{{gotejador.larguraFaixaMolhada}}</td>
+      <td>{{gotejador.uniformidade}}</td>
+      <td>{{gotejador.laminaGotejador}}</td>
+      <td><button class="btn btn-primary">Delete</button></td>
+      <td><button class="btn btn-warning">Editar</button></td>
+
+    </tr>
+  </tbody>
+</table>
+

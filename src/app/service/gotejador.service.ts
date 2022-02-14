@@ -1,5 +1,5 @@
-import { User } from './../model/User';
-import { AppConstants } from './../app-constants';
+import { User } from '../model/User';
+import { AppConstants } from '../app-constants';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CulturaService {
+export class GotejadorService {
 
 
   constructor(private http: HttpClient) {
   }
 
-  getCulturaList(): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrlCultura);
+  getGotejadorList(): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlGotejador);
   }
 
   getCultura(id): Observable<any> {

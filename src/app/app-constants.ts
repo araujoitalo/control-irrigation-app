@@ -12,4 +12,6 @@ export class AppConstants {
 
 	public static get baseUrlCultura(): string {return this.baseServidor + "controlirrigationapi/culturas/"}
 
+	public static get baseUrlGotejador(): string {return this.baseServidor + "controlirrigationapi/gotejadores/"}
+
 }

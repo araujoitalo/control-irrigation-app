@@ -19,7 +19,7 @@
 
    
 
-      <div class="card text-center">
+      <div class="card text-center" >
         <div class="card-header">
           Fases da Cultura/Variedade
         </div>
@@ -28,47 +28,47 @@
            
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;">
               <label for="nome">Nome</label>
-              <input type="text" class="form-control" id="num" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.nomeFase" id="nomeFase" name="nomeFase">
             </div>
            
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">Inicio(dias)</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.inicioFase" id="inicioFase" name="inicioFase">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">Fim(dias)</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.fimFase" id="fimFase" name="fimFase">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">Kc</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.kc" id="kc" name="kc">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">P. Raiz(cm)</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.profundidadeRaiz" id="profundidadeRaiz" name="profundidadeRaiz">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">P.Murcha(%)</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.pontoMurcha" id="pontoMurcha" name="pontoMurcha">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">Cap.Campo(%)</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.capacidadeCampo" id="capacidadeCampo" name="capacidadeCampo">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">Área S.(Kl)</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.areaSombreada" id="areaSombreada" name="areaSombreada">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
               <label for="nome">Limite</label>
-              <input type="text" class="form-control"  id="numero" name="numero">
+              <input type="text" class="form-control" [(ngModel)]="culturaFase.limite" id="limite" name="limite">
             </div>
 
             <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
@@ -84,15 +84,24 @@
       </div>
 
 
-  <table>
+  <table >
 
     <tbody class="table">
 
       <tr *ngFor="let culturaFase of cultura.culturaFases; let i = index;">
         <td>{{culturaFase.idCulturaFase}}</td>
+        <td>{{culturaFase.idCultura}}</td>
         <td>{{culturaFase.nomeFase}}</td>
+        <td>{{culturaFase.inicioFase}}</td>
+        <td>{{culturaFase.fimFase}}</td>
+        <td>{{culturaFase.kc}}</td>
+        <td>{{culturaFase.profundidadeRaiz}}</td>
+        <td>{{culturaFase.pontoMurcha}}</td>
+        <td>{{culturaFase.capacidadeCampo}}</td>
+        <td>{{culturaFase.areaSombreada}}</td>
+        <td>{{culturaFase.limite}}</td>
         <td>{{culturaFase.densidadeAparente}}</td>
-        <td><button class="btn btn-danger" >Delete</button></td>
+        <td><button class="btn btn-danger" (click)="deletarCulturaFase(culturaFase.idCulturaFase, i)">Delete</button></td>
       </tr>
     </tbody>
   </table>

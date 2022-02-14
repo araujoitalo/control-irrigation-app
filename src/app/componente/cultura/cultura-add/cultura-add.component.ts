@@ -53,7 +53,7 @@ export class CulturaAddComponent implements OnInit {
 
   novo() {
     this.cultura = new Cultura();
-
+    this.culturaFase = new CulturaFase();
   }
 
   adicionaCulturaFase() {
@@ -64,6 +64,20 @@ export class CulturaAddComponent implements OnInit {
     this.culturaFase.idCultura = this.cultura.idCultura;
     this.cultura.culturaFases.push(this.culturaFase);
     this.culturaFase = new CulturaFase();
+  }
+
+  deletarCulturaFase(id, i) {
+
+    if (id == null){
+      this.cultura.culturaFases.splice(i, 1);
+      return;
+    }
+
+    if (i !== null && confirm("Deseja remover?")){
+      this.culturaService.removerCulturaFase(id).subscribe(data => {
+        this.cultura.culturaFases.splice(i, 1);
+      });
+    }
   }
 
 }
