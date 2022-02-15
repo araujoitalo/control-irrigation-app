@@ -22,4 +22,20 @@ export class GotejadorComponent implements OnInit {
 
   }
 
+  excluirGotejador(id: Number) {
+
+    if (confirm('Deseja mesmo remover?')) {
+
+      this.gotejadorService.deletarGotejador(id).subscribe(data => {
+       // console.log("Retorno do método delete : " + data);
+
+       //this.culturas.splice(index, 1);/*Remover da tela*/
+       // this.usuarioService.getStudentList().subscribe(data => {
+       //   this.students = data;
+       // });
+
+      });
+    }
+  }
+
 }

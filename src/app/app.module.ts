@@ -41,6 +41,8 @@ export const appRouters: Routes = [
   { path: 'culturaAdd/:id', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},
 
   { path: 'gotejadorList', component : GotejadorComponent, canActivate: [GuardiaoGuard]},
+  { path: 'gotejadorAdd', component : GotejadorAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'gotejadorAdd/:id', component : GotejadorAddComponent, canActivate: [GuardiaoGuard]},
 
   { path: 'outorgaList', component : OutorgaComponent, canActivate: [GuardiaoGuard]},
   { path: 'outorgaAdd', component : OutorgaAddComponent, canActivate: [GuardiaoGuard]},

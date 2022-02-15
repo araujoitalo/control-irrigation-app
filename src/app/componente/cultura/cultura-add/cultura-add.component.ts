@@ -19,9 +19,7 @@ export class CulturaAddComponent implements OnInit {
     private router: Router,
     private routeActive: ActivatedRoute, 
     private culturaService: CulturaService
-    ) { 
-      
-    }
+    ) { }
 
   ngOnInit(): void {
     let id = this.routeActive.snapshot.paramMap.get('id');

@@ -1,1 +1,73 @@
-<p>gotejador-add works!</p>
+<h3 style="padding: 10px;">Gotejadores</h3>
+
+<form style="padding: 10px" #formValidate="ngForm">
+
+    <div class="form-row">
+        <div class="form-group col-md-1">
+          <label for="id">ID Gotejador</label>
+          <input type="text" [(ngModel)]="gotejador.idGotejador" class="form-control" id="idGotejador" readonly="true" name="idGotejador" autocomplete="false">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="nomeGotejador">Nome/Descrição</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <input type="text" [(ngModel)]="gotejador.nomeGotejador" #nomeValidate="ngModel" class="form-control" id="nomeGotejador" required="true" name="nomeGotejador" autocomplete="false">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="vazaoGotejador">Vazão(lh)</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <input type="text" [(ngModel)]="gotejador.vazaoGotejador" #nomeValidate="ngModel" class="form-control" id="vazaoGotejador" required="true" name="vazaoGotejador" autocomplete="false">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="espacamentoGotejador">Espaçamento entre Gotejadores</label>
+            <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+            <input type="text" [(ngModel)]="gotejador.espacamentoGotejador" #nomeValidate="ngModel" class="form-control" id="espacamentoGotejador" required="true" name="espacamentoGotejador" autocomplete="false">
+          </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="espacamentoLinha">Espaçamento entre linhas laterais</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <input type="text" [(ngModel)]="gotejador.espacamentoLinha" #nomeValidate="ngModel" class="form-control" id="espacamentoLinha" required="true" name="espacamentoLinha" autocomplete="false">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="larguraFaixaMolhada">Largura da faixa molhada</label>
+            <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+            <input type="text" [(ngModel)]="gotejador.larguraFaixaMolhada" #nomeValidate="ngModel" class="form-control" id="larguraFaixaMolhada" required="true" name="larguraFaixaMolhada" autocomplete="false">
+          </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="uniformidade">Uniformidade(%)</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <input type="text" [(ngModel)]="gotejador.uniformidade" #nomeValidate="ngModel" class="form-control" id="uniformidade" required="true" name="uniformidade" autocomplete="false">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="laminaGotejador">Lâmina(mm)</label>
+            <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+            <input type="text" [(ngModel)]="gotejador.laminaGotejador" #nomeValidate="ngModel" class="form-control" id="laminaGotejador" required="true" name="laminaGotejador" autocomplete="false">
+          </div>
+    </div>
+
+  
+    
+    
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <button type="button" class="btn btn-primary" [routerLink]="['/gotejadorList']" routerLinkActive="router-link-active">Voltar</button>
+            <button type="button" class="btn btn-primary" (click)="novo()" style="margin-left: 10px;">Novo</button>
+            <button type="button" class="btn btn-primary" [disabled]="formValidate.invalid" (click)="salvarGotejador()"style="margin-left: 10px;">Salvar</button>
+        </div>
+      </div>
+
+</form>

@@ -3,7 +3,7 @@
 
 <form class="form-inline">
 
-  <button type="button" [routerLink]="['/usuarioAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
+  <button type="button" [routerLink]="['/gotejadorAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
   
 </form>
 
@@ -35,8 +35,8 @@
       <td>{{gotejador.larguraFaixaMolhada}}</td>
       <td>{{gotejador.uniformidade}}</td>
       <td>{{gotejador.laminaGotejador}}</td>
-      <td><button class="btn btn-primary">Delete</button></td>
-      <td><button class="btn btn-warning">Editar</button></td>
+      <td><button (click)="excluirGotejador(gotejador.idGotejador)" class="btn btn-primary" class="btn btn-primary">Delete</button></td>
+      <td><button [routerLink]="['/gotejadorAdd', gotejador.idGotejador]" routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
 
     </tr>
   </tbody>

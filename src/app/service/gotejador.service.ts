@@ -17,26 +17,22 @@ export class GotejadorService {
     return this.http.get<any>(AppConstants.baseUrlGotejador);
   }
 
-  getCultura(id): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrlCultura + id);
+  getGotejador(id): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlGotejador + id);
   }
 
 
-  salvarCultura(cultura): Observable<any> {
-    console.info("cultura bug: " + JSON.stringify(cultura));
-    return this.http.post<any>(AppConstants.baseUrlCultura, cultura);
+  salvarGotejador(gotejador): Observable<any> {
+    console.info("gotejador bug: " + JSON.stringify(gotejador));
+    return this.http.post<any>(AppConstants.baseUrlGotejador, gotejador);
   }
 
-  updateCultura(cultura): Observable<any> {
-    return this.http.put<any>(AppConstants.baseUrlCultura, cultura);
+  updateGotejador(gotejador): Observable<any> {
+    return this.http.put<any>(AppConstants.baseUrlGotejador, gotejador);
   }
 
-  deletarCultura(id: Number): Observable<any> {
-    return this.http.delete(AppConstants.baseUrlCultura + id, { responseType: 'text' });
-  }
-
-  removerCulturaFase(id): Observable<any> {
-    return this.http.delete(AppConstants.baseUrlPath + "removerCulturaFase/" + id, { responseType: 'text' });
+  deletarGotejador(id: Number): Observable<any> {
+    return this.http.delete(AppConstants.baseUrlGotejador + id, { responseType: 'text' });
   }
 
 
