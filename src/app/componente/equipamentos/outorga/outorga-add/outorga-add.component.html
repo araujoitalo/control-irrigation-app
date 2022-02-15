@@ -1,0 +1,82 @@
+<h3 style="padding: 10px;">Outrogas e Fases</h3>
+
+<form style="padding: 10px" #formValidate="ngForm">
+
+    <div class="form-row">
+        <div class="form-group col-md-1">
+          <label for="id">ID Cultura</label>
+          <input type="text" [(ngModel)]="outorga.idOutorga" class="form-control" id="idOutorga" readonly="true" name="idOutorga" autocomplete="false">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="nomeCultura">Nome da Outorga</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <input type="text" [(ngModel)]="outorga.nomeOutorga" #nomeValidate="ngModel" class="form-control" id="nomeOutorga" required="true" name="Outorga" autocomplete="false">
+        </div>
+    </div>
+
+   <div class="card text-center" >
+        <div class="card-header">
+          Fases da Outorga
+        </div>
+        <div class="card-body" style="padding-left: 1px ;">
+          <div class="form-row">
+           
+            <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;">
+              <label for="nome">Nome</label>
+              <input type="text" class="form-control" [(ngModel)]="outorgaFase.nomeFase" id="nomeFase" name="nomeFase">
+            </div>
+           
+            <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
+              <label for="nome">Inicio(data)</label>
+              <input type="date" class="form-control" [(ngModel)]="outorgaFase.inicioFase" id="inicioFase" name="inicioFase">
+            </div>
+
+            <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
+              <label for="nome">Fim(data)</label>
+              <input type="date" class="form-control" [(ngModel)]="outorgaFase.fimFase" id="fimFase" name="fimFase">
+            </div>
+
+            <div class="form-group col-md-2" style=" min-width: 50px; max-width: 120px;" >
+              <label for="nome">Limite</label>
+              <input type="number" class="form-control" [(ngModel)]="outorgaFase.limiteFase" id="limiteFase" name="limiteFase">
+            </div>
+
+        
+            <div class="form-group col-md-2">
+              <button class="btn btn-primary" (click)="adicionaOutorgaFase()">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <table >
+
+    <tbody class="table">
+
+      <tr *ngFor="let outrogaFase of outorga.outorgaFases; let i = index;">
+        <td>{{outrogaFase.idOutrogaFase}}</td>
+        <td>{{outrogaFase.idOutorga}}</td>
+        <td>{{outrogaFase.nomeFase}}</td>
+        <td>{{outrogaFase.inicioFase}}</td>
+        <td>{{outrogaFase.fimFase}}</td>
+        <td>{{outrogaFase.limteFase}}</td>
+
+        <td><button class="btn btn-danger" (click)="deletarOutorgaFase(outorgaFase.idOutorgaFase, i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <button type="button" class="btn btn-primary" [routerLink]="['/outorgaList']" routerLinkActive="router-link-active">Voltar</button>
+            <button type="button" class="btn btn-primary" (click)="novo()"  style="margin-left: 10px;">Novo</button>
+            <button type="button" class="btn btn-primary" [disabled]="formValidate.invalid" (click)="salvarOutorga()"  style="margin-left: 10px;">Salvar</button>
+        </div>
+    </div>
+
+</form>

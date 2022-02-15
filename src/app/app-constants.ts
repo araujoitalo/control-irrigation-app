@@ -14,4 +14,6 @@ export class AppConstants {
 
 	public static get baseUrlGotejador(): string {return this.baseServidor + "controlirrigationapi/gotejadores/"}
 
+	public static get baseUrlOutorga(): string {return this.baseServidor + "controlirrigationapi/outorgas/"}
+
 }

@@ -19,6 +19,8 @@ import { CulturaComponent } from './componente/cultura/cultura.component';
 import { CulturaAddComponent } from './componente/cultura/cultura-add/cultura-add.component';
 import { GotejadorComponent } from './componente/equipamentos/gotejador/gotejador/gotejador.component';
 import { GotejadorAddComponent } from './componente/equipamentos/gotejador/gotejador-add/gotejador-add.component';
+import { OutorgaComponent } from './componente/equipamentos/outorga/outorga/outorga.component';
+import { OutorgaAddComponent } from './componente/equipamentos/outorga/outorga-add/outorga-add.component';
 
 
 export const appRouters: Routes = [
@@ -38,7 +40,11 @@ export const appRouters: Routes = [
   { path: 'culturaAdd', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},
   { path: 'culturaAdd/:id', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},
 
-  { path: 'gotejadorList', component : GotejadorComponent, canActivate: [GuardiaoGuard]}
+  { path: 'gotejadorList', component : GotejadorComponent, canActivate: [GuardiaoGuard]},
+
+  { path: 'outorgaList', component : OutorgaComponent, canActivate: [GuardiaoGuard]},
+  { path: 'outorgaAdd', component : OutorgaAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'outorgaAdd/:id', component : OutorgaAddComponent, canActivate: [GuardiaoGuard]}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
@@ -57,7 +63,9 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     CulturaComponent,
     CulturaAddComponent,
     GotejadorComponent,
-    GotejadorAddComponent
+    GotejadorAddComponent,
+    OutorgaComponent,
+    OutorgaAddComponent
 
   ],
   imports: [
