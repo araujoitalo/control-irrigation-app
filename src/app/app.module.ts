@@ -35,6 +35,7 @@ export const appRouters: Routes = [
 
   { path: 'fazendaList', component : FazendaComponent, canActivate: [GuardiaoGuard]},
   { path: 'fazendaAdd', component : FazendaAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'fazendaAdd/:id', component : FazendaAddComponent, canActivate: [GuardiaoGuard]},
 
   { path: 'culturaList', component : CulturaComponent, canActivate: [GuardiaoGuard]},
   { path: 'culturaAdd', component : CulturaAddComponent, canActivate: [GuardiaoGuard]},

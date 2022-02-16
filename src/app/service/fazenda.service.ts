@@ -1,4 +1,3 @@
-import { Fazenda } from './../model/Fazenda';
 import { AppConstants } from '../app-constants';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -14,32 +13,15 @@ export class FazendaService {
   }
 
   getFazendasList(idUsuario): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrlFazenda + idUsuario);
+    return this.http.get<any>(AppConstants.baseUrlFazenda + "buscaFazendas/"+ idUsuario);
   }
 
-  getStudentListPage(pagina): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrl + 'page/' + pagina);
+  getFazenda(id): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlFazenda + id);
   }
 
-  getStudant(id): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrl + id);
-  }
-
-
-  deletarUsuario(id: Number): Observable<any> {
-    return this.http.delete(AppConstants.baseUrl + id, { responseType: 'text' });
-  }
-
-
-  //http://localhost:8080/cursospringrestapi/usuario/usuarioPorNome/alex
-  consultarUser(nome: String): Observable<any> {
-    return this.http.get(AppConstants.baseUrl + "usuarioPorNome/" + nome);
-
-  }
-
-  consultarUserPorPage(nome: String, page: Number): Observable<any> {
-    return this.http.get(AppConstants.baseUrl + "usuarioPorNome/" + nome + "/page/" + page);
-
+  deletarFazenda(id: Number): Observable<any> {
+    return this.http.delete(AppConstants.baseUrlFazenda + id, { responseType: 'text' });
   }
 
   salvarFazenda(fazenda): Observable<any> {
@@ -47,23 +29,9 @@ export class FazendaService {
   }
 
   updateFazenda(fazenda): Observable<any> {
+    console.info("update: " + JSON.stringify(fazenda));
     return this.http.put<any>(AppConstants.baseUrlFazenda, fazenda);
   }
-
-  userAutenticado() {
-
-    if (localStorage.getItem('token') !== null &&
-      localStorage.getItem('token').toString().trim() !== null) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  removerTelefone(id): Observable<any> {
-    return this.http.delete(AppConstants.baseUrl + "removerTelefone/" + id, { responseType: 'text' });
-  }
-
 
 
 }
