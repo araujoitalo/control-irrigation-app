@@ -1,0 +1,46 @@
+<br/>
+<br/>
+
+<form class="form-inline">
+
+  <button type="button" [routerLink]="['/climaAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
+  
+</form>
+
+<br/>
+<br/>
+
+<table class="table">
+  <thead class="thread-dark">
+    <tr>
+      <th scope="col">ID Clima</th>
+      <th scope="col">Data</th>
+      <th scope="col">Temperatura Máxima</th>
+      <th scope="col">Temperatura Mínima</th> 
+      <th scope="col">Temperatura Média</th>
+      <th scope="col">UmidadeRelativa</th>
+      <th scope="col">Velicidade do Vento</th>
+      <th scope="col">Precipitação Total</th>
+      <th scope="col">Radiação</th>
+      <th scope="col">Excluir</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let clima of climas">
+      <td>{{clima.idClima}}</td>
+      <td>{{clima.dataClima}}</td>
+      <td>{{clima.temperaturaMaxima}}</td>
+      <td>{{clima.temperaturaMinima}}</td>
+      <td>{{clima.temperaturaMedia}}</td>
+      <td>{{clima.umidadeRelativa}}</td>
+      <td>{{clima.velocidadeVento}}</td>
+      <td>{{clima.precipitacao}}</td>
+      <td>{{clima.radiacaoMedia}}</td>
+      <td><button (click)="excluirClima(clima.idClima)" class="btn btn-primary" class="btn btn-primary">Delete</button></td>
+      <td><button [routerLink]="['/climaAdd', clima.idClima]" routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
+
+    </tr>
+  </tbody>
+</table>
+

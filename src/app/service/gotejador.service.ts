@@ -1,4 +1,3 @@
-import { User } from '../model/User';
 import { AppConstants } from '../app-constants';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

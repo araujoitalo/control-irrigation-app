@@ -21,6 +21,8 @@ import { GotejadorComponent } from './componente/equipamentos/gotejador/gotejado
 import { GotejadorAddComponent } from './componente/equipamentos/gotejador/gotejador-add/gotejador-add.component';
 import { OutorgaComponent } from './componente/equipamentos/outorga/outorga/outorga.component';
 import { OutorgaAddComponent } from './componente/equipamentos/outorga/outorga-add/outorga-add.component';
+import { ClimaComponent } from './componente/dados-diarios/clima/clima/clima.component';
+import { ClimaAddComponent } from './componente/dados-diarios/clima/clima-add/clima-add.component';
 
 
 export const appRouters: Routes = [
@@ -47,7 +49,11 @@ export const appRouters: Routes = [
 
   { path: 'outorgaList', component : OutorgaComponent, canActivate: [GuardiaoGuard]},
   { path: 'outorgaAdd', component : OutorgaAddComponent, canActivate: [GuardiaoGuard]},
-  { path: 'outorgaAdd/:id', component : OutorgaAddComponent, canActivate: [GuardiaoGuard]}
+  { path: 'outorgaAdd/:id', component : OutorgaAddComponent, canActivate: [GuardiaoGuard]},
+
+  { path: 'climaList', component : ClimaComponent, canActivate: [GuardiaoGuard]},
+  { path: 'climaAdd', component : ClimaAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'climaAdd/:id', component : ClimaAddComponent, canActivate: [GuardiaoGuard]}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
@@ -68,7 +74,9 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     GotejadorComponent,
     GotejadorAddComponent,
     OutorgaComponent,
-    OutorgaAddComponent
+    OutorgaAddComponent,
+    ClimaComponent,
+    ClimaAddComponent
 
   ],
   imports: [
