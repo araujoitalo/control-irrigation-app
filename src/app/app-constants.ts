@@ -17,4 +17,6 @@ export class AppConstants {
 	public static get baseUrlOutorga(): string {return this.baseServidor + "controlirrigationapi/outorgas/"}
 
 	public static get baseUrlClimas(): string {return this.baseServidor + "controlirrigationapi/climas/"}
+
+	public static get baseUrlIrrigacoes(): string {return this.baseServidor + "controlirrigationapi/irrigacoes/"}
 }
