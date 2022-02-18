@@ -1,6 +1,6 @@
 export class AppConstants {
 
-	public static get baseServidor(): string { return "https://controle-irrigacao-api.herokuapp.com/" }
+	public static get baseServidor(): string { return "https://controle-irrigacao-app.herokuapp.com/" }
 
 	public static get baseLogin(): string { return this.baseServidor + "controlirrigationapi/login" }
 
