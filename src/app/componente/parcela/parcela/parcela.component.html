@@ -1,0 +1,45 @@
+<br/>
+<br/>
+
+<form class="form-inline">
+
+  <button type="button" [routerLink]="['/parcelaAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
+  
+</form>
+
+<br/>
+<br/>
+
+<table class="table">
+  <thead class="thread-dark">
+    <tr>
+      <th scope="col">ID Parcela</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Cultura/Variedade</th>
+      <th scope="col">Equipamento</th> 
+      <th scope="col">Área(ha)</th>
+      <th scope="col">Pluviômetro</th>
+      <th scope="col">Umidade do solo no plantio (%)</th>
+      <th scope="col">Estresse Excedido(mm)</th>
+      <th scope="col">Outorga</th>
+      <th scope="col">Excluir</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let parcela of parcelas">
+      <td>{{parcela.idParcela}}</td>
+      <td>{{parcela.nomeParcela}}</td>
+      <td>{{parcela.idCultura}}</td>
+      <td>{{parcela.idGotejador}}</td>
+      <td>{{parcela.areaParcela}}</td>
+      <td>{{parcela.pluviomentro}}</td>
+      <td>{{parcela.umidadeSolo}}</td>
+      <td>{{parcela.extresseExcedido}}</td>
+      <td>{{parcela.idOutorga}}</td>
+      <td><button (click)="excluirParcela(parcela.idParcela)" class="btn btn-primary" class="btn btn-primary">Delete</button></td>
+      <td><button [routerLink]="['/parcelaAdd', parcela.idParcela]" routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
+
+    </tr>
+  </tbody>
+</table>

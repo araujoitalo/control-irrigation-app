@@ -1,6 +1,6 @@
 export class AppConstants {
 
-	//public static get baseServidor(): string { return "https://controle-irrigacao-app.herokuapp.com/" }
+	//public static get baseServidor(): string { return "http://localhost:8080/" }
 
 	public static get baseServidor(): string { return "https://controle-irrigacao-api.herokuapp.com/" }
 
@@ -21,4 +21,6 @@ export class AppConstants {
 	public static get baseUrlClimas(): string {return this.baseServidor + "controlirrigationapi/climas/"}
 
 	public static get baseUrlIrrigacoes(): string {return this.baseServidor + "controlirrigationapi/irrigacoes/"}
+
+	public static get baseUrlParcelas(): string {return this.baseServidor + "controlirrigationapi/parcelas/"}
 }

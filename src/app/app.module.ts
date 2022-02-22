@@ -25,6 +25,8 @@ import { ClimaComponent } from './componente/dados-diarios/clima/clima/clima.com
 import { ClimaAddComponent } from './componente/dados-diarios/clima/clima-add/clima-add.component';
 import { IrrigacaoAddComponent } from './componente/dados-diarios/irrigacao/irrigacao-add/irrigacao-add.component';
 import { IrrigacaoComponent } from './componente/dados-diarios/irrigacao/irrigacao/irrigacao.component';
+import { ParcelaAddComponent } from './componente/parcela/parcela-add/parcela-add.component';
+import { ParcelaComponent } from './componente/parcela/parcela/parcela.component';
 
 
 export const appRouters: Routes = [
@@ -59,7 +61,11 @@ export const appRouters: Routes = [
 
   { path: 'irrigacaoList', component : IrrigacaoComponent, canActivate: [GuardiaoGuard]},
   { path: 'irrigacaoAdd', component : IrrigacaoAddComponent, canActivate: [GuardiaoGuard]},
-  { path: 'irrigacaoAdd/:id', component : IrrigacaoAddComponent, canActivate: [GuardiaoGuard]}
+  { path: 'irrigacaoAdd/:id', component : IrrigacaoAddComponent, canActivate: [GuardiaoGuard]},
+
+  { path: 'parcelaList', component : ParcelaComponent, canActivate: [GuardiaoGuard]},
+  { path: 'parcelaAdd', component : ParcelaAddComponent, canActivate: [GuardiaoGuard]},
+  { path: 'parcelaAdd/:id', component : ParcelaAddComponent, canActivate: [GuardiaoGuard]}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
@@ -84,7 +90,9 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ClimaComponent,
     ClimaAddComponent,
     IrrigacaoAddComponent,
-    IrrigacaoComponent
+    IrrigacaoComponent,
+    ParcelaAddComponent,
+    ParcelaComponent
 
   ],
   imports: [

@@ -16,6 +16,12 @@ export class GotejadorService {
     return this.http.get<any>(AppConstants.baseUrlGotejador);
   }
 
+  getGotejadorListByFazenda(idFazenda): Observable<any> {
+    console.info("Gotejador fazen bug: " + JSON.stringify(idFazenda));
+    return this.http.get<any>(AppConstants.baseUrlGotejador + "buscaGotejadores/"+ idFazenda);
+  }
+
+
   getGotejador(id): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrlGotejador + id);
   }

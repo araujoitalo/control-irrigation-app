@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
   title = 'Curso-Angular-REST';
+  isCollapsed = false;
 
 
   constructor(private router: Router) {
@@ -23,6 +24,10 @@ export class AppComponent implements OnInit {
     }
 
   }
+
+  toggleNavbar() {
+    this.isCollapsed = !this.isCollapsed;
+  }  
 
   public sair() {
     localStorage.clear();

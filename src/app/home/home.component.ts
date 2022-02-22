@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.usuarioLogado = data;
 
     localStorage.setItem('idUsuario', JSON.stringify(this.usuarioLogado.idUsuario));
+    localStorage.setItem('idFazenda', JSON.stringify(1));
 
     console.info("home: " + this.usuarioLogado.idUsuario);
     let idUsuario:Number =+ JSON.parse(localStorage.getItem('idUsuario'));

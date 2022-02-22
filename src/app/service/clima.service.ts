@@ -17,6 +17,10 @@ export class ClimaService {
     return this.http.get<any>(AppConstants.baseUrlClimas);
   }
 
+  getClimaListByFazenda(idFazenda): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlClimas + "buscaClimas/"+ idFazenda);
+  }
+
   getClima(id): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrlClimas + id);
   }

@@ -26,14 +26,12 @@
   <tbody>
     <tr *ngFor="let irrigacao of irrigacoes">
       <td>{{irrigacao.idIrrigacao}}</td>
-      <td>{{irrigacao.dataIrigacao}}</td>
+      <td>{{irrigacao.dataIrrigacao}}</td>
       <td>{{irrigacao.idParcela}}</td>
-      <td>{{irrigacao.quantitade}}</td>
+      <td>{{irrigacao.quantidade}}</td>
       <td>{{irrigacao.inicioIrrigacao}}</td>
       <td>{{irrigacao.fertirrigacao}}</td>
-      <td>{{irrigacao.velocidadeVento}}</td>
-      <td>{{irrigacao.precipitacao}}</td>
-      <td>{{irrigacao.radiacaoMedia}}</td>
+  
       <td><button  class="btn btn-primary" class="btn btn-primary">Delete</button></td>
       <td><button routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
 

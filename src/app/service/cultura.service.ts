@@ -17,7 +17,13 @@ export class CulturaService {
     return this.http.get<any>(AppConstants.baseUrlCultura);
   }
 
+  getCulturaListByFazenda(idFazenda): Observable<any> {
+    console.info("cultura fazen bug: " + JSON.stringify(idFazenda));
+    return this.http.get<any>(AppConstants.baseUrlCultura + "buscaCulturas/"+ idFazenda);
+  }
+
   getCultura(id): Observable<any> {
+    console.info("cultura bug: " + JSON.stringify(id));
     return this.http.get<any>(AppConstants.baseUrlCultura + id);
   }
 

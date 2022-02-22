@@ -1,1 +1,61 @@
-<p>irrigacao-add works!</p>
+<h3 style="padding: 10px;">Irrigações</h3>
+
+<form style="padding: 10px" #formValidate="ngForm">
+
+    <div class="form-row">
+        <div class="form-group col-md-1">
+          <label for="idIrrigacao">ID Irrigação</label>
+          <input type="text" [(ngModel)]="irrigacao.idIrrigacao" class="form-control" id="idIrrigacao" readonly="true" name="idIrrigacao" autocomplete="false">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="dataIrrigacao">Data Irrigacao</label>
+          <input type="date" [(ngModel)]="irrigacao.dataIrrigacao" class="form-control" id="dataIrrigacao" name="dataIrrigacao" required="true" autocomplete="false">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="idParcela">Parcela</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <select class="form-control" [(ngModel)]="irrigacao.idParcela" id="idParcela" required="true" name="idParcela"  >
+            <option value="0">--Selecione--</option>
+            <option *ngFor="let parcela of parcelas" [value]="parcela.idFazenda">{{ parcela.nomeFazenda}}</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="quantidade">Irrigação Gotejo(minutos)</label>
+            <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+            <input type="text" [(ngModel)]="irrigacao.quantidade" #nomeValidate="ngModel" class="form-control" id="quantidade" required="true" name="quantidade" autocomplete="false">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inicioIrrigacao">Inicio da Irrigação(Horas)</label>
+            <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+            <input type="text" [(ngModel)]="irrigacao.inicioIrrigacao" #nomeValidate="ngModel" class="form-control" id="inicioIrrigacao" required="true" name="inicioIrrigacao" autocomplete="false">
+          </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="fertirrigacao">Fertirrigação</label>
+          <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+          <input type="checkbox" [(ngModel)]="irrigacao.fertirrigacao" #nomeValidate="ngModel" class="form-control" id="fertirrigacao" required="true" name="fertirrigacao" autocomplete="false">
+        </div>
+
+    </div>
+
+
+    
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <button type="button" class="btn btn-primary" [routerLink]="['/irrigacaoList']" routerLinkActive="router-link-active">Voltar</button>
+            <button type="button" class="btn btn-primary" (click)="novo()" style="margin-left: 10px;">Novo</button>
+            <button type="button" class="btn btn-primary" [disabled]="formValidate.invalid" (click)="salvarIrrigacao()" style="margin-left: 10px;">Salvar</button>
+        </div>
+      </div>
+
+</form>
