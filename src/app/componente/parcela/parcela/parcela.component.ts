@@ -12,10 +12,12 @@ export class ParcelaComponent implements OnInit {
 
   parcelas: Observable<Parcela[]>;
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(private parcelaService: ParcelaService) { }
 
   ngOnInit(): void {
-    this.parcelaService.getParcelaList().subscribe(data => {
+    this.parcelaService.getParcelaList(this.idFazenda).subscribe(data => {
       this.parcelas = data;
     })
   }

@@ -12,12 +12,13 @@ export class ClimaComponent implements OnInit {
 
   climas: Observable<Clima[]>;
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(private climaService: ClimaService) { }
 
   ngOnInit(): void {
 
     let idFazenda:Number =+ JSON.parse(localStorage.getItem('idFazenda'));
-    console.info("g: " + JSON.stringify(idFazenda));
     this.climaService.getClimaListByFazenda(idFazenda).subscribe(data => {
       this.climas = data;
       //this.total = data.totalElements;

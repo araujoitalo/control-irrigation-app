@@ -11,9 +11,9 @@
     </select>
   </div>
 
-  <button type="button"  (click)="buscaParcela()" class="btn btn-primary mb-2">Buscar</button>
+  <button type="button"  (click)="buscaPrecipitacoes()" class="btn btn-primary mb-2">Buscar</button>
 
-  <button type="button" [routerLink]="['/irrigacaoAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
+  <button type="button" [routerLink]="['/precipitacaoAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
   
 </form>
 
@@ -23,24 +23,22 @@
 <table class="table">
   <thead class="thread-dark">
     <tr>
-      <th scope="col">ID Irrigacao</th>
+      <th scope="col">ID Precipitação</th>
       <th scope="col">Data</th>
       <th scope="col">Parcela</th>
-      <th scope="col">Irrigação Gotejo</th> 
-      <th scope="col">Inicio da Irrigacao</th>
-      <th scope="col">Fertirrigação</th>
+      <th scope="col">Chuva</th> 
+ 
       <th scope="col">Excluir</th>
       <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let irrigacao of irrigacoes">
-      <td>{{irrigacao.idIrrigacao}}</td>
-      <td>{{irrigacao.dataIrrigacao}}</td>
-      <td>{{irrigacao.idParcela}}</td>
-      <td>{{irrigacao.quantidade}}</td>
-      <td>{{irrigacao.inicioIrrigacao}}</td>
-      <td>{{irrigacao.fertirrigacao}}</td>
+    <tr *ngFor="let precipitacao of precipitacoes">
+      <td>{{precipitacao.idPrecipitacao}}</td>
+      <td>{{precipitacao.dataPrecipitacao}}</td>
+      <td>{{precipitacao.idParcela}}</td>
+      <td>{{precipitacao.chuva}}</td>
+
   
       <td><button  class="btn btn-primary" class="btn btn-primary">Delete</button></td>
       <td><button routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
@@ -48,4 +46,3 @@
     </tr>
   </tbody>
 </table>
-

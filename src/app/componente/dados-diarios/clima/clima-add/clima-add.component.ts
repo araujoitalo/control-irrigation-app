@@ -12,6 +12,8 @@ export class ClimaAddComponent implements OnInit {
 
   clima = new Clima();
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(
     private router: Router,
     private routeActive: ActivatedRoute,
@@ -40,7 +42,7 @@ export class ClimaAddComponent implements OnInit {
         console.info("Clima Atualizado: " + data);
       });
     } else {
-      this.clima.idFazenda = 1;
+      this.clima.idFazenda = this.idFazenda;
       this.climaService.salvarClima(this.clima).subscribe(data => { /*Salvando um novo Clima */
         this.novo();
         this.router.navigate(['climaList']);

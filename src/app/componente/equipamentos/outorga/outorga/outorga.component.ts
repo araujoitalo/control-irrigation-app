@@ -12,10 +12,12 @@ export class OutorgaComponent implements OnInit {
 
   outorgas: Observable<Outorga[]>;
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(private outorgaService: OutorgaService) { }
 
   ngOnInit(): void {
-    this.outorgaService.getOutorgaList().subscribe(data => {
+    this.outorgaService.getOutorgaList(this.idFazenda).subscribe(data => {
       this.outorgas = data;
     });
   }

@@ -23,4 +23,6 @@ export class AppConstants {
 	public static get baseUrlIrrigacoes(): string {return this.baseServidor + "controlirrigationapi/irrigacoes/"}
 
 	public static get baseUrlParcelas(): string {return this.baseServidor + "controlirrigationapi/parcelas/"}
+
+	public static get baseUrlPrecipitacoes(): string {return this.baseServidor + "controlirrigationapi/precipitacoes/"}
 }

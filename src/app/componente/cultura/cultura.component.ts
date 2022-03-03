@@ -17,7 +17,9 @@ export class CulturaComponent implements OnInit {
 
   ngOnInit() {
 
-    this.culturaService.getCulturaList().subscribe(data => {
+    let idFazenda:Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
+    this.culturaService.getCulturaList(idFazenda).subscribe(data => {
       this.culturas = data;
       //this.total = data.totalElements;
     });

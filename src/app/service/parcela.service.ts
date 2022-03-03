@@ -12,17 +12,16 @@ export class ParcelaService {
   constructor(private http: HttpClient) {
   }
 
-  getParcelaList(): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrlParcelas);
+  getParcelaList(idFazenda): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlParcelas + "buscaParcelas/"+ idFazenda);
   }
 
   getParcela(id): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrlParcelas + id);
   }
 
-
   salvarParcela(parcela): Observable<any> {
-    console.info("Parcela bug: " + JSON.stringify(parcela));
+    console.info(" fazen bug: " + JSON.stringify(parcela));
     return this.http.post<any>(AppConstants.baseUrlParcelas, parcela);
   }
 

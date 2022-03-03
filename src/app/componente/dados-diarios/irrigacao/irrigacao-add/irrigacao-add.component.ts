@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IrrigacaoService } from 'src/app/service/irrigacao.service';
 import { FazendaService } from 'src/app/service/fazenda.service';
 import { Parcela } from 'src/app/model/Parcela';
+import { ParcelaService } from 'src/app/service/parcela.service';
 
 @Component({
   selector: 'app-irrigacao-add',
@@ -16,11 +17,13 @@ export class IrrigacaoAddComponent implements OnInit {
   irrigacao = new Irrigacao();
   parcelas: Observable<Parcela[]>;
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(
     private router: Router,
     private routeActive: ActivatedRoute,
     private irrigacaoService: IrrigacaoService,
-    private parcelaService: FazendaService
+    private parcelaService: ParcelaService
   ) { }
 
   ngOnInit(): void {
@@ -33,8 +36,8 @@ export class IrrigacaoAddComponent implements OnInit {
       });
     }
 
-    let idParcela = 1;
-    this.parcelaService.getFazendasList(idParcela).subscribe(data => {
+
+    this.parcelaService. getParcelaList(this.idFazenda).subscribe(data => {
       this.parcelas = data;
       //this.total = data.totalElements;
     });

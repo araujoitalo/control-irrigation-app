@@ -13,8 +13,12 @@ export class OutorgaService {
   constructor(private http: HttpClient) {
   }
 
-  getOutorgaList(): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrlOutorga);
+  getOutorgaList(idFazenda): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlOutorga + "buscaOutorgas/"+ idFazenda);
+  }
+
+  getOutorgaListByFazenda(idFazenda): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlOutorga + "buscaOutorgas/"+ idFazenda);
   }
 
   getOutorga(id): Observable<any> {

@@ -27,20 +27,30 @@
         <div class="form-group col-md-4">
           <label for="idCultura">Cultura</label>
           <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
-          <select class="form-control" [(ngModel)]="parcela.idCultura" id="idCultura" required="true" name="idCultura"  >
+          <select class="form-control" type="number" [(ngModel)]="parcela.idCultura" id="idCultura" required="true" name="idCultura"  >
             <option value="0">--Selecione--</option>
-            <option *ngFor="let cultura of culturas" [value]="cultura.idCultura">{{cultura.nomeCultura}}</option>
+            <option *ngFor="let cultura of culturas" [ngValue]="cultura.idCultura">{{cultura.nomeCultura}}</option>
           </select>
         </div>
 
         <div class="form-group col-md-4">
             <label for="idGotejador">Gotejador</label>
             <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
-            <select class="form-control" [(ngModel)]="parcela.idGotejador" id="idGotejador" required="true" name="idGotejador"  >
+            <select class="form-control" type="number" [(ngModel)]="parcela.idGotejador" id="idGotejador" required="true" name="idGotejador"  >
               <option value="0">--Selecione--</option>
-              <option *ngFor="let gotejador of gotejadores" [value]="gotejador.idGotejador">{{gotejador.nomeGotejador}}</option>
+              <option *ngFor="let gotejador of gotejadores" [ngValue]="gotejador.idGotejador">{{gotejador.nomeGotejador}}</option>
             </select>
           </div>
+
+          <div class="form-group col-md-4">
+            <label for="idOutorga">Outorga</label>
+            <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
+            <select class="form-control" type="number" [(ngModel)]="parcela.idOutorga" id="idOutorga" required="true" name="idOutorga"  >
+              <option value="0">--Selecione--</option>
+              <option *ngFor="let outorga of outorgas" [ngValue]="outorga.idOutorga">{{outorga.nomeOutorga}}</option>
+            </select>
+          </div>
+      
 
        
 

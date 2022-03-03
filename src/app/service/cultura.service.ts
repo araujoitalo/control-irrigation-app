@@ -13,23 +13,19 @@ export class CulturaService {
   constructor(private http: HttpClient) {
   }
 
-  getCulturaList(): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrlCultura);
+  getCulturaList(idFazenda): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlCultura + "buscaCulturas/"+ idFazenda);
   }
 
   getCulturaListByFazenda(idFazenda): Observable<any> {
-    console.info("cultura fazen bug: " + JSON.stringify(idFazenda));
     return this.http.get<any>(AppConstants.baseUrlCultura + "buscaCulturas/"+ idFazenda);
   }
 
   getCultura(id): Observable<any> {
-    console.info("cultura bug: " + JSON.stringify(id));
     return this.http.get<any>(AppConstants.baseUrlCultura + id);
   }
 
-
   salvarCultura(cultura): Observable<any> {
-    console.info("cultura bug: " + JSON.stringify(cultura));
     return this.http.post<any>(AppConstants.baseUrlCultura, cultura);
   }
 

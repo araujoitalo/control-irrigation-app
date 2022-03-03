@@ -16,6 +16,10 @@ export class IrrigacaoService {
     return this.http.get<any>(AppConstants.baseUrlIrrigacoes);
   }
 
+  getIrrrigacaoListByParcela(idParcela): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlIrrigacoes + "buscaIrrigacoes/"+ idParcela);
+  }
+
   getIrrigacao(id): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrlIrrigacoes + id);
   }

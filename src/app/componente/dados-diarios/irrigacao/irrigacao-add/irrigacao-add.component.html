@@ -20,9 +20,9 @@
         <div class="form-group col-md-4">
           <label for="idParcela">Parcela</label>
           <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
-          <select class="form-control" [(ngModel)]="irrigacao.idParcela" id="idParcela" required="true" name="idParcela"  >
+          <select class="form-control" type="number" [(ngModel)]="irrigacao.idParcela" id="idParcela" required="true" name="idParcela"  >
             <option value="0">--Selecione--</option>
-            <option *ngFor="let parcela of parcelas" [value]="parcela.idFazenda">{{ parcela.nomeFazenda}}</option>
+            <option *ngFor="let parcela of parcelas" [ngValue]="parcela.idParcela">{{parcela.nomeParcela}}</option>
           </select>
         </div>
 
@@ -43,7 +43,7 @@
         <div class="form-group col-md-4">
           <label for="fertirrigacao">Fertirrigação</label>
           <span style="color: red; font-size: 23px;" *ngIf="nomeValidate.invalid"> *</span>
-          <input type="checkbox" [(ngModel)]="irrigacao.fertirrigacao" #nomeValidate="ngModel" class="form-control" id="fertirrigacao" required="true" name="fertirrigacao" autocomplete="false">
+          <input type="checkbox" [(ngModel)]="irrigacao.fertirrigacao" #nomeValidate="ngModel" class="form-control" id="fertirrigacao" required="false" name="fertirrigacao" autocomplete="false">
         </div>
 
     </div>

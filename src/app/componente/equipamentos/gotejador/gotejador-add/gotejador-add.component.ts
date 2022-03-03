@@ -12,6 +12,8 @@ export class GotejadorAddComponent implements OnInit {
 
   gotejador = new Gotejador();
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(
     private router: Router,
     private routeActive: ActivatedRoute,
@@ -40,7 +42,7 @@ export class GotejadorAddComponent implements OnInit {
         console.info("Gotejador Atualizado: " + data);
       });
     } else {
-      this.gotejador.idFazenda = 1;
+      this.gotejador.idFazenda = this.idFazenda;
       this.gotejadorService.salvarGotejador(this.gotejador).subscribe(data => { /*Salvando um novo User */
         this.novo();
         this.router.navigate(['gotejadorList']);

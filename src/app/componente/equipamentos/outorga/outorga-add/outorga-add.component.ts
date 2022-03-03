@@ -13,6 +13,7 @@ export class OutorgaAddComponent implements OnInit {
 
   outorga = new Outorga();
   outorgaFase = new OutorgaFase();
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
 
   constructor(
     private router: Router,
@@ -53,10 +54,10 @@ export class OutorgaAddComponent implements OnInit {
         console.info("Outorga Atualizado: " + data);
       });
     } else {
-      this.outorga.idFazenda = 1;
+      this.outorga.idFazenda = this.idFazenda;
       this.outorgaService.salvarOutorga(this.outorga).subscribe(data => { /*Salvando um novo User */
         this.novo();
-        this.router.navigate(['outrogaList']);
+        this.router.navigate(['outorgaList']);
         console.info("Gravou Outorga: " + data);
       });
     }

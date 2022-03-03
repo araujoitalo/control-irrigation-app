@@ -12,10 +12,12 @@ export class GotejadorComponent implements OnInit {
 
   gotejadores: Observable<Gotejador[]>;
 
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   constructor(private gotejadorService: GotejadorService) { }
 
   ngOnInit(): void {
-    this.gotejadorService.getGotejadorList().subscribe(data => {
+    this.gotejadorService.getGotejadorListByFazenda(this.idFazenda).subscribe(data => {
       this.gotejadores = data;
       //this.total = data.totalElements;
     });

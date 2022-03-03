@@ -20,6 +20,11 @@ export class FazendaService {
     return this.http.get<any>(AppConstants.baseUrlFazenda + id);
   }
 
+  getPrimeiraFazenda(idUsuario): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrlFazenda + "buscaPrimeiraFazenda/"+ idUsuario);
+    
+  }
+
   deletarFazenda(id: Number): Observable<any> {
     return this.http.delete(AppConstants.baseUrlFazenda + id, { responseType: 'text' });
   }

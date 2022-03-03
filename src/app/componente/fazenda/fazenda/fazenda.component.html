@@ -24,13 +24,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let fazenda of fazendas">
+    <tr *ngFor="let fazenda of fazendas let i = index">
       <td>{{fazenda.idFazenda}}</td>
       <td>{{fazenda.nomeFazenda}}</td>
       <td>{{fazenda.area}}</td>
       <td>{{fazenda.altitude}}</td>
       <td>{{fazenda.dataCadastro}}</td>
-      <td><button (click)="excluirFazenda(fazenda.idFazenda)" class="btn btn-primary" class="btn btn-primary">Delete</button></td>
+      <td><button (click)="excluirFazenda(fazenda.idFazenda, i)" class="btn btn-primary" class="btn btn-primary">Delete</button></td>
       <td><button [routerLink]="['/fazendaAdd', fazenda.idFazenda]" routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
 
     </tr>

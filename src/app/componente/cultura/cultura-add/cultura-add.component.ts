@@ -26,6 +26,7 @@ export class CulturaAddComponent implements OnInit {
 
     if (id != null) {
       this.culturaService.getCultura(id).subscribe(data => {
+        
         this.cultura = data;
       });
     }
@@ -35,12 +36,15 @@ export class CulturaAddComponent implements OnInit {
   salvarCultura() {
     if (this.cultura.idCultura != null && this.cultura.idCultura.toString().trim() != null) { /* Atualizando ou Editando*/
       this.culturaService.updateCultura(this.cultura).subscribe(data => {
+        console.info("cultura teste: " + JSON.stringify(this.cultura.culturaFases));
         this.novo();
         this.router.navigate(['culturaList']);
         console.info("Cultura Atualizado: " + data);
       });
     } else {
-      this.cultura.idFazenda = 1;
+      let idFazenda:Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+      this.cultura.idFazenda = idFazenda;
+      console.info("cultura teste: " + JSON.stringify(this.cultura));
       this.culturaService.salvarCultura(this.cultura).subscribe(data => { /*Salvando um novo User */
         this.novo();
         this.router.navigate(['culturaList']);
@@ -58,8 +62,10 @@ export class CulturaAddComponent implements OnInit {
     if (this.cultura.culturaFases === undefined){
       this.cultura.culturaFases = new Array<CulturaFase>();
     }
+    
 
     this.culturaFase.idCultura = this.cultura.idCultura;
+    console.info("cultura fase: " + JSON.stringify(this.culturaFase));
     this.cultura.culturaFases.push(this.culturaFase);
     this.culturaFase = new CulturaFase();
   }
