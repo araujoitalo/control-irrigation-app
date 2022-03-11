@@ -29,7 +29,11 @@ import { ParcelaAddComponent } from './componente/parcela/parcela-add/parcela-ad
 import { ParcelaComponent } from './componente/parcela/parcela/parcela.component';
 import { PrecipitacaoAddComponent } from './componente/dados-diarios/precipitacao/precipitacao-add/precipitacao-add.component';
 import { PrecipitacaoComponent } from './componente/dados-diarios/precipitacao/precipitacao/precipitacao.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbThemeModule, NbLayoutModule, NbCardModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 export const appRouters: Routes = [
 
@@ -110,7 +114,14 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     routes,
     HttpInterceptorModule,
     NgxMaskModule.forRoot(optionMask),
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbLayoutModule,
+    NbEvaIconsModule,
+    Ng2SmartTableModule,
+    NbCardModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

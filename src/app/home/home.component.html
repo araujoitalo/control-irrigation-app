@@ -1,6 +1,23 @@
 <br/>
 <br/>
 
+<form class="form-inline">
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="parcelaSelecionada">Selecione a Parcela</label>
+    <select class="form-control" type="number" [(ngModel)]="parcelaSelecionada" id="parcelaSelecionada" required="fase" name="parcelaSelecionada"  >
+      <option value="0">--Selecione--</option>
+      <option *ngFor="let parcela of parcelas" [ngValue]="parcela.idParcela">{{parcela.nomeParcela}}</option>
+    </select>
+  </div>
+
+  <button type="button"  (click)="buscaParcela()" class="btn btn-primary mb-2">Buscar</button>
+
+</form>
+
+<br/>
+<br/>
+
 <table class="table">
   <thead class="thread-dark">
     <tr>
@@ -18,8 +35,8 @@
       <td>{{manejo.idParcela}}</td>
       <td>{{manejo.irrigacaoNecessaria}}</td>
       <td>{{manejo.irrigacaoNecessaria}}</td>
-      <td>{{manejo.irrigacaoNecessaria}}</td>
-      <td>{{manejo.irrigacaoNecessaria}}</td>
+      <td>{{manejo.tempo}}</td>
+      <td>{{manejo.percentimetro}}</td>
     </tr>
   </tbody>
 </table>

@@ -1,56 +1,72 @@
-<div id="page-content-wrapper" >
+<nb-layout>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" [hidden]="esconderBarrar()">
+  <nb-layout-header fixed>
+  <!-- Insert header here -->
+  </nb-layout-header>
 
-  <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active">Controle De Irrigação</a>
-	
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-		 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isCollapsed }">
-    <ul class="navbar-nav mr-auto">
+  <nb-layout-column>
+
+    <div id="page-content-wrapper" >
     
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/fazendaList']" routerLinkActive="router-link-active">Fazendas</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/culturaList']" routerLinkActive="router-link-active">Culturas</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/gotejadorList']" routerLinkActive="router-link-active">Gotejador</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/outorgaList']" routerLinkActive="router-link-active">Outorga</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/parcelaList']" routerLinkActive="router-link-active">Parcelas</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/climaList']" routerLinkActive="router-link-active">Clima</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/irrigacaoList']" routerLinkActive="router-link-active">Irrigação</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/precipitacaoList']" routerLinkActive="router-link-active">Precipitação</a> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="sair()">Sair</a> 
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Menu
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <a class="dropdown-item" [routerLink]="['/userList']" routerLinkActive="router-link-active" >Usuario</a>
-          <a class="dropdown-item" href="#">Link 2</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Link 3</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
-<router-outlet></router-outlet>
-</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" [hidden]="esconderBarrar()">
+    
+      <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active">Controle De Irrigação</a>
+    	
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    		 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isCollapsed }">
+        <ul class="navbar-nav mr-auto">
+        
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/fazendaList']" routerLinkActive="router-link-active">Fazendas</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/culturaList']" routerLinkActive="router-link-active">Culturas</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/gotejadorList']" routerLinkActive="router-link-active">Gotejador</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/outorgaList']" routerLinkActive="router-link-active">Outorga</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/parcelaList']" routerLinkActive="router-link-active">Parcelas</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/climaList']" routerLinkActive="router-link-active">Clima</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/irrigacaoList']" routerLinkActive="router-link-active">Irrigação</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/precipitacaoList']" routerLinkActive="router-link-active">Precipitação</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sair()">Sair</a> 
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" [routerLink]="['/userList']" routerLinkActive="router-link-active" >Usuario</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+    </div>
+    
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+  <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>

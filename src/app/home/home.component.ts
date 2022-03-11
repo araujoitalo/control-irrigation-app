@@ -6,6 +6,8 @@ import { ManejoService } from './../service/manejo.service';
 import { Component, OnInit } from '@angular/core';
 import { Manejo } from '../model/Manejo';
 import { FazendaService } from '../service/fazenda.service';
+import { ParcelaService } from '../service/parcela.service';
+import { Parcela } from '../model/Parcela';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +20,12 @@ export class HomeComponent implements OnInit {
   fazenda = new Fazenda();
   usuarioLogado = new User();
 
+  parcelas: Observable<Parcela[]>;
+  parcelaSelecionada: Number;
+
   constructor(
     private manejoService: ManejoService,
+    private parcelaService: ParcelaService,
     private usuarioService: UsuarioService,
     private fazendaService: FazendaService) { }
 
@@ -28,19 +34,28 @@ export class HomeComponent implements OnInit {
   this.usuarioService.recuperarUsuario().subscribe(data => {
     this.usuarioLogado = data;
     localStorage.setItem('idUsuario', JSON.stringify(this.usuarioLogado.idUsuario));
-    //console.info("idUsuario: " + this.usuarioLogado.idUsuario);
+
+
+    let idUsuario: Number =+ JSON.parse(localStorage.getItem('idUsuario'));
     
-    let idUsuario:Number =+ JSON.parse(localStorage.getItem('idUsuario'));
     this.fazendaService.getPrimeiraFazenda(idUsuario).subscribe(data => {
       this.fazenda = data;
       console.info("fazenda: " + this.fazenda.idFazenda);
       localStorage.setItem('idFazenda', JSON.stringify(this.fazenda.idFazenda));
     });
-    
-    this.manejoService.buscarManejo(idUsuario).subscribe(data => {
-        this.manejos = data;
-        
-      });
+
+    let idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
+    this.parcelaService.getParcelaList(idFazenda).subscribe(data => {
+      this.parcelas = data;
+    });
+   
+    });
+  }
+
+  buscaParcela() {
+    this.manejoService.buscarManejo(this.parcelaSelecionada).subscribe(data => {
+      this.manejos = data;
     });
   }
 }
