@@ -201,6 +201,9 @@ licenses; we recommend you read them, as their terms may differ from the
 terms above.
 
 
+nebular-icons
+MIT
+
 ng2-completer
 MIT
 MIT License

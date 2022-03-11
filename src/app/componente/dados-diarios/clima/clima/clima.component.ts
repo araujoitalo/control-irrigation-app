@@ -116,12 +116,6 @@ export class ClimaComponent implements OnInit {
     this.clima = new Clima();
   }
 
-  onCreateConfirm(event) {
-    console.log("Create Event In Console")
-    console.log(event);
-
-  }
-
   salvarClima(event) {
 
     console.log("Edit Event In Console")
