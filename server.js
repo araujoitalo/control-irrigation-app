@@ -1,12 +1,4 @@
-const express = require('express');
-const path = require('path');
-
-const app = express();
-
-app.use(express.static(__dirname + '/dist/Curso-Angular-REST'));
-
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/Curso-Angular-REST/index.html'))
-});
-
-app.listen(process.env.PORT || 8080);
+var express = require(‘express’);
+var app = express();
+app.use(express.static(__dirname + '/dist/Curso-Angular-REST')); //aqui você define onde está o index.html da sua aplicação.
+app.listen(process.env.PORT || 3000);
