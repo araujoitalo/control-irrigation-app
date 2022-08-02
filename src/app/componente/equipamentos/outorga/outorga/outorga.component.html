@@ -1,5 +1,4 @@
-<br/>
-<br/>
+<h1>Outorgas</h1>
 
 <form class="form-inline">
     <button type="button" [routerLink]="['/outorgaAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
@@ -11,7 +10,6 @@
   <thead class="thread-dark">
     <tr>
 
-      <th scope="col">Id Outorga</th>
       <th scope="col">Nome da Outorga</th>
       <th scope="col">Excluir</th>
       <th scope="col">Editar</th>
@@ -20,7 +18,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let outorga of outorgas">
-      <td>{{outorga.idOutorga}}</td>
       <td>{{outorga.nomeOutorga}}</td>
       <td><button (click)="excluirOutorga(outorga.idOutorga)" class="btn btn-primary">Excluir</button></td>
       <td><button [routerLink]="['/outorgaAdd', outorga.idOutorga]" routerLinkActive="router-link-active" class="btn btn-warning">Editar</button></td>

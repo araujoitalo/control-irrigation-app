@@ -12,6 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ClimaComponent implements OnInit {
 
+  climas: Observable<Clima[]>;
+  clima = new Clima();
+
+  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
+
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -72,11 +77,6 @@ export class ClimaComponent implements OnInit {
     },
   };
 
-  climas: Observable<Clima[]>;
-  clima = new Clima();
-
-  idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
-
   constructor(private climaService: ClimaService,
     private router: Router,
     private routeActive: ActivatedRoute,) { }
@@ -90,6 +90,10 @@ export class ClimaComponent implements OnInit {
       //this.total = data.totalElements;
     });
 
+  }
+
+  novo() {
+    this.clima = new Clima();
   }
 
   excluirClima(event) {
@@ -109,11 +113,6 @@ export class ClimaComponent implements OnInit {
       event.confirm.reject();
     }
 
-  }
-
-
-  novo() {
-    this.clima = new Clima();
   }
 
   salvarClima(event) {

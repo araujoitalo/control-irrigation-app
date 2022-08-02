@@ -1,3 +1,4 @@
+import { AppModule } from './../app.module';
 import { UsuarioService } from './../service/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../service/login-service.service';
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.usuario);
     localStorage.setItem('loginUsuario', this.usuario.login);
     console.info("arar " + localStorage.getItem('loginUsuario'));
+
   }
 
   ngOnInit() {

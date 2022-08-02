@@ -1,7 +1,8 @@
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { CulturaService } from 'src/app/service/cultura.service';
 import { Component, OnInit } from '@angular/core';
 import { Cultura } from 'src/app/model/Cultura';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cultura',
@@ -13,7 +14,9 @@ export class CulturaComponent implements OnInit {
   culturas: Observable<Cultura[]>;
   total: number;
 
-  constructor(private culturaService: CulturaService) { }
+  constructor(
+    private culturaService: CulturaService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -23,6 +26,7 @@ export class CulturaComponent implements OnInit {
       this.culturas = data;
       //this.total = data.totalElements;
     });
+  
   }
 
   excluirCultura(id: Number) {

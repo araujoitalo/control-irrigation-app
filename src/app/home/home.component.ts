@@ -40,9 +40,8 @@ export class HomeComponent implements OnInit {
     
     this.fazendaService.getPrimeiraFazenda(idUsuario).subscribe(data => {
       this.fazenda = data;
-      console.info("fazenda: " + this.fazenda.idFazenda);
       localStorage.setItem('idFazenda', JSON.stringify(this.fazenda.idFazenda));
-    });
+   });
 
     let idFazenda: Number =+ JSON.parse(localStorage.getItem('idFazenda'));
 

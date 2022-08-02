@@ -1,48 +1,27 @@
-<br/>
-<br/>
+<nb-card>
+  <nb-card-header>
+    <h1>Irrigação</h1>
 
-<form class="form-inline">
+    <form class="form-inline">
 
-  <div class="form-group mx-sm-3 mb-2">
-    <label for="parcelaSelecionada">Selecione a Parcela</label>
-    <select class="form-control" type="number" [(ngModel)]="parcelaSelecionada" id="parcelaSelecionada" required="fase" name="parcelaSelecionada"  >
-      <option value="0">--Selecione--</option>
-      <option *ngFor="let parcela of parcelas" [ngValue]="parcela.idParcela">{{parcela.nomeParcela}}</option>
-    </select>
-  </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="parcelaSelecionada">Selecione a Parcela</label>
+        <select class="form-control" type="number" [(ngModel)]="parcelaSelecionada" id="parcelaSelecionada" required="fase" name="parcelaSelecionada"  >
+          <option value="0">--Selecione--</option>
+          <option *ngFor="let parcela of parcelas" [ngValue]="parcela.idParcela">{{parcela.nomeParcela}}</option>
+        </select>
+      </div>
+    
+      <button type="button"  (click)="buscaParcela()" class="btn btn-primary mb-2">Buscar</button>
+   
+    </form>
+  </nb-card-header>
 
-  <button type="button"  (click)="buscaParcela()" class="btn btn-primary mb-2">Buscar</button>
-
-  <button type="button" [routerLink]="['/irrigacaoAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"    class="btn btn-success mb-2">Novo</button>
-  
-</form>
-
-<br/>
-<br/>
-
-<table class="table">
-  <thead class="thread-dark">
-    <tr>
-      <th scope="col">ID Irrigacao</th>
-      <th scope="col">Data</th>
-      <th scope="col">Parcela</th>
-      <th scope="col">Irrigação Gotejo</th> 
-      <th scope="col">Fertirrigação</th>
-      <th scope="col">Excluir</th>
-      <th scope="col">Editar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let irrigacao of irrigacoes">
-      <td>{{irrigacao.idIrrigacao}}</td>
-      <td>{{irrigacao.dataIrrigacao}}</td>
-      <td>{{irrigacao.idParcela}}</td>
-      <td>{{irrigacao.quantidade}}</td>
-      <td>{{irrigacao.fertirrigacao}}</td>
-  
-      <td><button  class="btn btn-primary" class="btn btn-primary">Delete</button></td>
-      <td><button routerLinkActive="router-link-active"class="btn btn-warning">Editar</button></td>
-    </tr>
-  </tbody>
-</table>
-
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="irrigacoes" 
+    (editConfirm)="onEditConfirm($event)"
+    (createConfirm)="salvarIrrigacao($event)"
+    (deleteConfirm)="excluirIrrigacao($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

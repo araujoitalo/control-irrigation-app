@@ -1,5 +1,4 @@
-<br/>
-<br/>
+<h1>Fazendas</h1>
 
 <form class="form-inline">
 
@@ -13,9 +12,7 @@
 <table class="table">
   <thead class="thread-dark">
     <tr>
-      <th scope="col">ID Fazenda</th>
       <th scope="col">Nome da Fazenda</th>
-      <th scope="col">Vazão(l/h)</th>
       <th scope="col">Área(ha)</th> 
       <th scope="col">Altitude</th>
       <th scope="col">Data de Cadastro</th>
@@ -25,7 +22,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let fazenda of fazendas let i = index">
-      <td>{{fazenda.idFazenda}}</td>
       <td>{{fazenda.nomeFazenda}}</td>
       <td>{{fazenda.area}}</td>
       <td>{{fazenda.altitude}}</td>

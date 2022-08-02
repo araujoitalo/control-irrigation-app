@@ -30,10 +30,13 @@ import { ParcelaComponent } from './componente/parcela/parcela/parcela.component
 import { PrecipitacaoAddComponent } from './componente/dados-diarios/precipitacao/precipitacao-add/precipitacao-add.component';
 import { PrecipitacaoComponent } from './componente/dados-diarios/precipitacao/precipitacao/precipitacao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbSidebarModule, NbMenuModule, NbIconModule, NbSelectModule, NbActionsModule, NbDatepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { SmartTableDatepickerComponent, SmartTableDatepickerRenderComponent } from './smart-table-datepicker/smart-table-datepicker.component';
 
 export const appRouters: Routes = [
 
@@ -104,7 +107,9 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ParcelaAddComponent,
     ParcelaComponent,
     PrecipitacaoAddComponent,
-    PrecipitacaoComponent
+    PrecipitacaoComponent,
+    SmartTableDatepickerComponent,
+    SmartTableDatepickerRenderComponent
 
   ],
   imports: [
@@ -119,9 +124,21 @@ export const optionMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
+    NbIconModule,
+    NbSelectModule,
+    NbActionsModule,
     Ng2SmartTableModule,
-    NbCardModule
+    NbCardModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    NbDatepickerModule.forRoot()
   
+  ],
+  entryComponents: [
+    SmartTableDatepickerComponent,
+    SmartTableDatepickerRenderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ export class FazendaService {
   }
 
   getFazendasList(idUsuario): Observable<any> {
+    console.info("iduduario: " + idUsuario);
     return this.http.get<any>(AppConstants.baseUrlFazenda + "buscaFazendas/"+ idUsuario);
   }
 
