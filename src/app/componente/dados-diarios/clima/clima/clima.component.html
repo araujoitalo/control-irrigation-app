@@ -4,10 +4,13 @@
   </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="climas" 
-    (editConfirm)="onEditConfirm($event)"
-    (createConfirm)="salvarClima($event)"
-    (deleteConfirm)="excluirClima($event)">
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="climas"
+      (editConfirm)="onEditConfirm($event)"
+      (createConfirm)="salvarClima($event)"
+      (deleteConfirm)="excluirClima($event)"
+    >
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>

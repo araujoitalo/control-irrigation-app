@@ -3,6 +3,22 @@
 
 <form class="form-inline">
 
+  <div>
+    <nb-select
+        placeholder="Selecione a Fazenda"
+        type="number"
+        [(ngModel)]="fazendaSelecionada"
+        (selectedChange)="selecionaFazenda()"
+        id="selecionaFazenda"
+        required="true"
+        name="selecionaFazenda"
+      >
+        <nb-option *ngFor="let fazenda of fazendas" [value]="fazenda.idFazenda">
+          {{ fazenda.nomeFazenda }}</nb-option
+        >
+      </nb-select>
+  </div>
+
   <div class="form-group mx-sm-3 mb-2">
     <label for="parcelaSelecionada">Selecione a Parcela</label>
     <select class="form-control" type="number" [(ngModel)]="parcelaSelecionada" id="parcelaSelecionada" required="false" name="parcelaSelecionada"  >

@@ -8,21 +8,17 @@ import { Observable, Subject } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-
   title = 'Curso-Angular-REST';
   isCollapsed = false;
-
-  fazendas: Observable<Fazenda[]>;
-  fazendaSelecionada: Number;
 
   items: NbMenuItem[] = [
     {
       title: 'Home',
       icon: 'home-outline',
-      link: '/home'
+      link: '/home',
     },
 
     {
@@ -71,47 +67,33 @@ export class AppComponent implements OnInit {
           icon: 'umbrella-outline',
           link: '/precipitacaoList',
         },
-      
       ],
     },
-   
+
     {
       title: 'Parcelas',
       target: '_blank',
       icon: 'pie-chart-outline',
-      link: '/parcelaList'
-    }
-   ];
-
+      link: '/parcelaList',
+    },
+  ];
 
   constructor(
     private router: Router,
-    private sidebarService: NbSidebarService,
-    private fazendaService: FazendaService) {
-
-  }
+    private sidebarService: NbSidebarService
+  ) {}
 
   ngOnInit() {
-
-
     if (localStorage.getItem('token') == null) {
-     this.router.navigate(['login']);
-    }else{
+      this.router.navigate(['login']);
+    } else {
       this.router.navigate(['home']);
-      let idUsuario: Number =+ JSON.parse(localStorage.getItem('idUsuario'));
-      this.fazendaService.getFazendasList(idUsuario).subscribe(data => {
-        this.fazendas = data;
-        console.info("fazenda: " + this.fazendas);
-  
-      });
+      let idUsuario: Number = +JSON.parse(localStorage.getItem('idUsuario'));
     }
-
-    this.fazendaSelecionada = JSON.parse(localStorage.getItem('idFazenda'));
-
   }
+
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
-    
     return false;
   }
 
@@ -122,13 +104,6 @@ export class AppComponent implements OnInit {
 
   toggleNavbar() {
     this.isCollapsed = !this.isCollapsed;
-  }  
-
-  selecionaFazenda() {
-
-    console.info("idddfazenda: " + this.fazendaSelecionada);
-    localStorage.removeItem('idFazenda');
-    localStorage.setItem('idFazenda', JSON.stringify(this.fazendaSelecionada));
   }
 
   public sair() {
@@ -136,17 +111,14 @@ export class AppComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-
   public esconderBarrar() {
-
-    if (localStorage.getItem('token') !== null &&
-      localStorage.getItem('token').toString().trim() !== null) {
+    if (
+      localStorage.getItem('token') !== null &&
+      localStorage.getItem('token').toString().trim() !== null
+    ) {
       return false;
     } else {
       return true;
     }
-
   }
-
-
 }

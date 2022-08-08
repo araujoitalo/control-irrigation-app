@@ -1,5 +1,4 @@
 <nb-layout windowMode>
-
   <nb-layout-header fixed [hidden]="esconderBarrar()">
     <div class="header-container">
       <div class="logo-container">
@@ -8,37 +7,27 @@
         </a>
         <a class="logo">Controle de Irrigação</a>
       </div>
-
-      <nb-select placeholder="Selecione a Fazenda" type="number" [(ngModel)]="fazendaSelecionada" (selectedChange)="selecionaFazenda()" id="selecionaFazenda" required="true" name="selecionaFazenda" >
-        <nb-option *ngFor="let fazenda of fazendas" [value]="fazenda.idFazenda"> {{ fazenda.nomeFazenda }}</nb-option>
-      </nb-select>
-    
     </div>
 
     <div class="header-container">
       <nb-actions size="small">
-    
         <nb-action class="control-item">
           <a class="nav-link" (click)="sair()">Sair</a>
         </nb-action>
-        
       </nb-actions>
     </div>
-    
   </nb-layout-header>
 
-  <nb-sidebar lcass="menu-sidebar" tag="menu-sidebar" responsive [hidden]="esconderBarrar()">
-
-   
-      <nb-menu tag="menu" [items]="items"></nb-menu>
-
-
-  
+  <nb-sidebar
+    lcass="menu-sidebar"
+    tag="menu-sidebar"
+    responsive
+    [hidden]="esconderBarrar()"
+  >
+    <nb-menu tag="menu" [items]="items"></nb-menu>
   </nb-sidebar>
 
   <nb-layout-column class="colored-column-basic">
     <router-outlet></router-outlet>
   </nb-layout-column>
 </nb-layout>
-
-
